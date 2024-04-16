@@ -53,6 +53,26 @@ weapons = []
 # 무기 이동 속도
 weapon_speed = 10
 
+# 공 만들기 (4개 크기에 대해 따로 처리)
+ball_images = [pygame.image.load(os.path.join(image_path, "ballone1.png")), 
+               pygame.image.load(os.path.join(image_path, "ballone2.png")), 
+               pygame.image.load(os.path.join(image_path, "ballone3.png")), 
+               pygame.image.load(os.path.join(image_path, "ballone4.png"))]
+
+# 공 크기에 따른 최초 스피드
+ball_speed_y = [-18, -15, -12, -9]
+
+# 공들 
+balls = []
+
+# 최초 발생하는 큰 공 추가
+balls.append({"pos_x" : 50, # 공의 x 좌표
+              "pos_y" : 50, # 공의 y 좌표
+              "img_idx" : 0, # 공의 이미지 인덱스
+              "to_x" : 3, # x축 이동 방향 
+              "to_y" : -6, # y축 이동 방향
+              "init_spd_y" : ball_speed_y[0] # y 최초 속도
+              }) 
 # 이벤트 루프
 running = True
 while(running):
